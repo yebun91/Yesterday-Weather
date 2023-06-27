@@ -15,10 +15,10 @@ class LocationDataManager : NSObject, ObservableObject, CLLocationManagerDelegat
     var locationManager = CLLocationManager()
     
     var latitude: Double {
-        locationManager.location?.coordinate.latitude ?? 0.0
+        locationManager.location?.coordinate.latitude ?? 37.5635694
     }
     var longitude: Double {
-        locationManager.location?.coordinate.longitude ?? 0.0
+        locationManager.location?.coordinate.longitude ?? 126.9800083
     }
     
     override init() {
@@ -35,13 +35,7 @@ class LocationDataManager : NSObject, ObservableObject, CLLocationManagerDelegat
         case .restricted:
             authorizationStatus = .restricted
         case .denied:
-            // 사용자가 위치 업데이트를 거부했을 경우 기본적으로 보여지는 위치 설정
             authorizationStatus = .denied
-            let defaultLatitude = 37.5635694
-            let defaultLongitude = 126.9800083
-            Task {
-                await weatherKitManager?.getWeather(latitude: defaultLatitude, longitude: defaultLongitude)
-            }
         case .notDetermined:
             authorizationStatus = .notDetermined
             manager.requestWhenInUseAuthorization()
