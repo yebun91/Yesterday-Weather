@@ -24,4 +24,5 @@ struct CurrentTempView: View {
                 .frame(maxWidth: .infinity, alignment: .center)
         }.frame(maxHeight: .infinity).background(Color.blue)
     }
+
 }

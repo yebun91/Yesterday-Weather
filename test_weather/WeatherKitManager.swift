@@ -10,7 +10,13 @@ import CoreLocation
 
 @MainActor class WeatherKitManager: ObservableObject {
     
-    @Published var weather : Weather? {
+    @Published var nowWeather : Weather? {
+        didSet {
+            updateTemp()
+        }
+    }
+    
+    @Published var yesterdayWeather : Forecast<HourWeather>? {
         didSet {
             updateTemp()
         }
@@ -25,10 +31,11 @@ import CoreLocation
     /**
      날씨 조회
      */
-    func getWeather(latitude: Double, longitude: Double) async {
+    func getNowWeather(latitude: Double, longitude: Double) async {
+        let location = CLLocation(latitude: latitude, longitude: longitude)
         do {
-            weather = try await Task.detached(priority: .userInitiated) {
-                return try await WeatherService.shared.weather(for: .init(latitude: latitude, longitude: longitude))
+            nowWeather = try await Task.detached(priority: .userInitiated) {
+                return try await WeatherService.shared.weather(for: location)
             }.value
         } catch {
             fatalError("\(error)")
@@ -36,8 +43,25 @@ import CoreLocation
         
     }
     
+    func getyesterDayWeather(latitude: Double, longitude: Double) async {
+        let location = CLLocation(latitude: latitude, longitude: longitude)
+        let now = Date()
+        let yesterday = Calendar.current.date(byAdding: .day, value: -1, to: Date())!
+        
+        do {
+            yesterdayWeather = try await Task.detached(priority: .userInitiated) {
+                return try await WeatherService.shared.weather(for: location, including: .hourly(startDate: yesterday, endDate: now))
+                
+            }.value
+            print("----------------------------")
+            print(yesterdayWeather)
+        } catch {
+            fatalError("\(error)")
+        }
+    }
+    
     var temp: String {
-        if let temperature = weather?.currentWeather.temperature {
+        if let temperature = nowWeather?.currentWeather.temperature {
             let celsius = temperature.converted(to: .celsius)
             let roundedCelsius = Measurement(value: celsius.value.rounded(), unit: UnitTemperature.celsius)
             
