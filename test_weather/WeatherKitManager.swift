@@ -54,7 +54,9 @@ import CoreLocation
                 
             }.value
             print("----------------------------")
-            print(yesterdayWeather)
+            for hourWeather in yesterdayWeather! {
+                print("Date: \(hourWeather.date), Temperature: \(hourWeather.temperature), Condition: \(hourWeather.condition)")
+            }
         } catch {
             fatalError("\(error)")
         }
