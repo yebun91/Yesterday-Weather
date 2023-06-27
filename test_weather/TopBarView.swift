@@ -7,23 +7,51 @@
 
 import Foundation
 import SwiftUI
+import CoreLocation
 
 /**
  상단 바를 정의하는 별도의 뷰
  */
 struct TopBarView: View {
-    
+    @State private var locationName = "Loading..."
+    @EnvironmentObject var locationDataManager: LocationDataManager
     
     var body: some View {
         HStack {
             IconButtonView(imageName: "bars-solid")
             Spacer()
-            Text("금천구")
+            Text(locationName)
             Spacer()
             IconButtonView(imageName: "location-dot-solid")
         }.background(Color.green)
+            .task {
+                await fetchLocationName()
+            }
+            .onReceive(locationDataManager.$latitude.combineLatest(locationDataManager.$longitude)) { _, _ in
+                Task {
+                    await fetchLocationName()
+                }
+            }
+        
+    }
+    func fetchLocationName() async {
+        let location = CLLocation(latitude: locationDataManager.latitude, longitude: locationDataManager.longitude)
+        
+        let geocoder = CLGeocoder()
+        do {
+            let placemarks = try await geocoder.reverseGeocodeLocation(location)
+            guard let placemark = placemarks.first else {
+                print("No valid placemarks found.")
+                return
+            }
+            
+            locationName = placemark.subLocality ?? "Unknown Location"
+        } catch {
+            print("Unable to reverse geocode the given location. Error: \(error)")
+        }
     }
 }
+
 
 /**
  아이콘 버튼을 정의하는 별도의 뷰
@@ -57,7 +85,6 @@ struct IconButtonView: View {
 
 
 struct SettingsLauncher: UIViewControllerRepresentable {
-    
     func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
         // This function doesn't need to do anything for an alert.
     }
@@ -75,7 +102,7 @@ struct SettingsLauncher: UIViewControllerRepresentable {
         }))
         
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-                
+        
         
         let viewController = UIViewController()
         viewController.view.isHidden = true

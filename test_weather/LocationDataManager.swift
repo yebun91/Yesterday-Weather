@@ -14,12 +14,8 @@ class LocationDataManager : NSObject, ObservableObject, CLLocationManagerDelegat
     
     var locationManager = CLLocationManager()
     
-    var latitude: Double {
-        locationManager.location?.coordinate.latitude ?? 37.5635694
-    }
-    var longitude: Double {
-        locationManager.location?.coordinate.longitude ?? 126.9800083
-    }
+    @Published var latitude: Double = 37.4702313
+    @Published var longitude: Double = 126.8926482
     
     override init() {
         super.init()
@@ -46,11 +42,11 @@ class LocationDataManager : NSObject, ObservableObject, CLLocationManagerDelegat
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last {
-            let latitude = location.coordinate.latitude
-            let longitude = location.coordinate.longitude
+            self.latitude = location.coordinate.latitude
+            self.longitude = location.coordinate.longitude
             
             Task {
-                await weatherKitManager?.getWeather(latitude: latitude, longitude: longitude)
+                await weatherKitManager?.getWeather(latitude: self.latitude, longitude: self.longitude)
             }
         }
     }
