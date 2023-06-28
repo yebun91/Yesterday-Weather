@@ -46,7 +46,6 @@ class LocationDataManager : NSObject, ObservableObject, CLLocationManagerDelegat
             self.longitude = location.coordinate.longitude
             
             Task {
-                await weatherKitManager?.getNowWeather(latitude: self.latitude, longitude: self.longitude)
                 await weatherKitManager?.getyesterDayWeather(latitude: self.latitude, longitude: self.longitude)
             }
         }

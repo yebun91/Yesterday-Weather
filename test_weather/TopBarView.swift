@@ -68,7 +68,6 @@ struct IconButtonView: View {
         Button(action: {
             if locationDataManager.authorizationStatus == .authorizedWhenInUse {
                 Task {
-                    await weatherKitManager.getNowWeather(latitude: locationDataManager.latitude, longitude: locationDataManager.longitude)
                     await weatherKitManager.getyesterDayWeather(latitude: locationDataManager.latitude, longitude: locationDataManager.longitude)
                 }
             } else {

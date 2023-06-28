@@ -10,13 +10,7 @@ import CoreLocation
 
 @MainActor class WeatherKitManager: ObservableObject {
     
-    @Published var nowWeather : Weather? {
-        didSet {
-            updateTemp()
-        }
-    }
-    
-    @Published var yesterdayWeather : Forecast<HourWeather>? {
+    @Published var weatherInfo : [String: HourWeather] = [:] {
         didSet {
             updateTemp()
         }
@@ -29,51 +23,56 @@ import CoreLocation
     }
     
     /**
-     날씨 조회
+     날씨 조회 후 딕셔너리 타입에 넣음.
      */
-    func getNowWeather(latitude: Double, longitude: Double) async {
-        let location = CLLocation(latitude: latitude, longitude: longitude)
-        do {
-            nowWeather = try await Task.detached(priority: .userInitiated) {
-                return try await WeatherService.shared.weather(for: location)
-            }.value
-        } catch {
-            fatalError("\(error)")
-        }
-        
-    }
-    
     func getyesterDayWeather(latitude: Double, longitude: Double) async {
         let location = CLLocation(latitude: latitude, longitude: longitude)
         let now = Date()
-        let yesterday = Calendar.current.date(byAdding: .day, value: -1, to: Date())!
+        let yesterday = Calendar.current.date(byAdding: .day, value: -1, to: now)!
+        let tomorrow = Calendar.current.date(byAdding: .day, value: +1, to: now)!
         
         do {
-            yesterdayWeather = try await Task.detached(priority: .userInitiated) {
-                return try await WeatherService.shared.weather(for: location, including: .hourly(startDate: yesterday, endDate: now))
+            let apiData = try await Task.detached(priority: .userInitiated) {
+                return try await WeatherService.shared.weather(for: location, including: .hourly(startDate: yesterday, endDate: tomorrow))
                 
             }.value
-            print("----------------------------")
-            for hourWeather in yesterdayWeather! {
-                print("Date: \(hourWeather.date), Temperature: \(hourWeather.temperature), Condition: \(hourWeather.condition)")
+            
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd HH"
+            
+            for hourWeather in apiData {
+                let hourWeatherDateString = formatter.string(from: hourWeather.date)
+                weatherInfo[hourWeatherDateString] = hourWeather
             }
+            
         } catch {
             fatalError("\(error)")
         }
     }
     
-    var temp: String {
-        if let temperature = nowWeather?.currentWeather.temperature {
-            let celsius = temperature.converted(to: .celsius)
-            let roundedCelsius = Measurement(value: celsius.value.rounded(), unit: UnitTemperature.celsius)
-            
-            let formatter = MeasurementFormatter()
-            formatter.numberFormatter.maximumFractionDigits = 0
-            formatter.unitOptions = .providedUnit // Use the unit provided with the measurement
-            
-            return formatter.string(from: roundedCelsius)
+    func getTemp(day: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH"
+        let dayformat = formatter.string(from: day)
+        if let temperature = weatherInfo[dayformat]?.temperature {
+            // Convert Measurement<UnitTemperature> to String with rounding
+            let roundedTemp = temperature.value.rounded()
+            return String(format: "%.0f", roundedTemp)
         } else {
             return "Loading Weather Data"
+        }
+    }
+    
+    func getWeathers(day: Date) -> HourWeather? {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH"
+        let dayformat = formatter.string(from: day)
+        if let weathers = weatherInfo[dayformat] {
+            print(weathers)
+            
+            return weathers
+        } else {
+            return nil
         }
     }
 }

@@ -12,13 +12,20 @@ import SwiftUI
  날씨 지표(바람, 습도, 강수량 등)를 표시하는 별도의 뷰
  */
 struct WeatherIndicatorView: View {
+    @EnvironmentObject var weatherKitManager: WeatherKitManager
+    
     var body: some View {
+        let weathers = weatherKitManager.getWeathers(day: Date())
+        let humidity = Int((weathers?.humidity ?? 0.0) * 100)
+        let wind = weathers?.wind.speed ?? Measurement(value: 0, unit: UnitSpeed.kilometersPerHour)
+        let precipitation = weathers?.precipitationAmount ?? Measurement(value: 0, unit: UnitLength.millimeters)
+        
         HStack{
-            WeatherIndicatorItemView(imageName: "wind-solid", text: "0.8m/s")
+            WeatherIndicatorItemView(imageName: "wind-solid", text: "\(wind)")
             Spacer()
-            WeatherIndicatorItemView(imageName: "droplet-solid", text: "59%")
+            WeatherIndicatorItemView(imageName: "droplet-solid", text: "\(humidity)%")
             Spacer()
-            WeatherIndicatorItemView(imageName: "cloud-rain-solid", text: "2.4mm")
+            WeatherIndicatorItemView(imageName: "cloud-rain-solid", text: "\(precipitation)")
         }.background(Color.orange)
     }
 }
