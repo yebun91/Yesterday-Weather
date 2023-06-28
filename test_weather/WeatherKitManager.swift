@@ -50,26 +50,28 @@ import CoreLocation
         }
     }
     
+    /**
+     온도 데이터만 가져옴
+     */
     func getTemp(day: Date) -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH"
         let dayformat = formatter.string(from: day)
         if let temperature = weatherInfo[dayformat]?.temperature {
-            // Convert Measurement<UnitTemperature> to String with rounding
             let roundedTemp = temperature.value.rounded()
             return String(format: "%.0f", roundedTemp)
         } else {
             return "Loading Weather Data"
         }
     }
-    
+    /**
+     모든 날씨 데이터 가져옴
+     */
     func getWeathers(day: Date) -> HourWeather? {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH"
         let dayformat = formatter.string(from: day)
         if let weathers = weatherInfo[dayformat] {
-            print(weathers)
-            
             return weathers
         } else {
             return nil
