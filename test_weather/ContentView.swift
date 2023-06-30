@@ -22,6 +22,9 @@ struct ContentView: View {
             
             HourlyForecastScrollView()
             
+            AdView()
+                .frame(width: 320, height: 50)
+            
         }.padding()
             .task{
                 locationDataManager.weatherKitManager = weatherKitManager // 인스턴스를 공유합니다.
