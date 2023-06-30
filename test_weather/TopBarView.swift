@@ -66,12 +66,14 @@ struct IconButtonView: View {
     
     var body: some View {
         Button(action: {
-            if locationDataManager.authorizationStatus == .authorizedWhenInUse {
-                Task {
-                    await weatherKitManager.getyesterDayWeather(latitude: locationDataManager.latitude, longitude: locationDataManager.longitude)
+            if imageName == "location-dot-solid" {
+                if locationDataManager.authorizationStatus == .authorizedWhenInUse {
+                    Task {
+                        await weatherKitManager.getWeathersFromYesterdayToTomorrow(latitude: locationDataManager.latitude, longitude: locationDataManager.longitude)
+                    }
+                } else {
+                    showSettingsAlert = true
                 }
-            } else {
-                showSettingsAlert = true
             }
         }) {
             Image(imageName)
@@ -113,11 +115,3 @@ struct SettingsLauncher: UIViewControllerRepresentable {
         return viewController
     }
 }
-
-
-
-
-
-
-
-

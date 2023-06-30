@@ -25,7 +25,7 @@ struct ContentView: View {
         }.padding()
             .task{
                 locationDataManager.weatherKitManager = weatherKitManager // 인스턴스를 공유합니다.
-                await weatherKitManager.getyesterDayWeather(latitude: locationDataManager.latitude, longitude: locationDataManager.longitude)
+                await weatherKitManager.getWeathersFromYesterdayToTomorrow(latitude: locationDataManager.latitude, longitude: locationDataManager.longitude)
             }
             .environmentObject(weatherKitManager)
             .environmentObject(locationDataManager)

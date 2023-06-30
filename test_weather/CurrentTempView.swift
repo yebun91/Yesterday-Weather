@@ -19,8 +19,7 @@ struct CurrentTempView: View {
         let yesterday = Calendar.current.date(byAdding: .day, value: -1, to: today)!
         let todayTemp = Int(weatherKitManager.getTemp(day: today)) ?? 0
         let yesterdayTemp = Int(weatherKitManager.getTemp(day: yesterday)) ?? 0
-        let tempDifference = yesterdayTemp - todayTemp
-        
+        let tempDifference =  todayTemp - yesterdayTemp
         
         VStack{
             Text("\(todayTemp)°C").frame(maxWidth: .infinity, alignment: .center)

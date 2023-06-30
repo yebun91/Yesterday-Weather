@@ -23,9 +23,9 @@ import CoreLocation
     }
     
     /**
-     날씨 조회 후 딕셔너리 타입에 넣음.
+     어제부터 내일까지의 날씨 데이터 를 api로 불러옴
      */
-    func getyesterDayWeather(latitude: Double, longitude: Double) async {
+    func getWeathersFromYesterdayToTomorrow(latitude: Double, longitude: Double) async {
         let location = CLLocation(latitude: latitude, longitude: longitude)
         let now = Date()
         let yesterday = Calendar.current.date(byAdding: .day, value: -1, to: now)!
@@ -64,8 +64,9 @@ import CoreLocation
             return "Loading Weather Data"
         }
     }
+    
     /**
-     모든 날씨 데이터 가져옴
+     지정한 시간의 날씨 데이터 가져옴
      */
     func getWeathers(day: Date) -> HourWeather? {
         let formatter = DateFormatter()
@@ -76,5 +77,32 @@ import CoreLocation
         } else {
             return nil
         }
+    }
+    
+    /**
+     Date에서 현재 시간을 16:00 과 같은 형태로 가져옴
+     */
+    func hourString(from date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm"
+        return formatter.string(from: date)
+    }
+    
+    /**
+     어제와 오늘의 온도차를 가져옴
+     */
+    func calculateFeelTemp(index: Int, sortedKeys: [String]) -> String {
+        let yesterdayKey = Array(self.weatherInfo.keys).sorted().prefix(24)
+        if index >= 0,
+           let weatherToday = self.weatherInfo[sortedKeys[index]],
+           let weatherYesterday = self.weatherInfo[yesterdayKey[index]] {
+            let tempToday = weatherToday.temperature.value.rounded()
+            let tempYesterday = weatherYesterday.temperature.value.rounded()
+            let feelTemp = tempToday - tempYesterday
+            // 양수일 때 "+" 기호를 붙여줍니다.
+            let format = feelTemp > 0 ? "+%.0f" : "%.0f"
+            return String(format: format, feelTemp)
+        }
+        return "0"
     }
 }
