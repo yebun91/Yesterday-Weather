@@ -22,8 +22,7 @@ struct ContentView: View {
             
             HourlyForecastScrollView()
             
-            AdView()
-                .frame(width: 320, height: 50)
+            AdView().frame(height: 50)
             
         }.padding()
             .task{
