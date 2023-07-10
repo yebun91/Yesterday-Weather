@@ -18,20 +18,20 @@ struct TopBarView: View {
     
     var body: some View {
         HStack {
-            IconButtonView(imageName: "bars-solid")
+            IconButtonView(imageName: "bars-solid").opacity(0)
             Spacer()
             Text(locationName)
             Spacer()
             IconButtonView(imageName: "location-dot-solid")
-        }.background(Color.green)
-            .task {
+        }
+        .task {
+            await fetchLocationName()
+        }
+        .onReceive(locationDataManager.$latitude.combineLatest(locationDataManager.$longitude)) { _, _ in
+            Task {
                 await fetchLocationName()
             }
-            .onReceive(locationDataManager.$latitude.combineLatest(locationDataManager.$longitude)) { _, _ in
-                Task {
-                    await fetchLocationName()
-                }
-            }
+        }
         
     }
     func fetchLocationName() async {
@@ -72,6 +72,7 @@ struct IconButtonView: View {
                         await weatherKitManager.getWeathersFromYesterdayToTomorrow(latitude: locationDataManager.latitude, longitude: locationDataManager.longitude)
                     }
                 } else {
+                    showSettingsAlert = false
                     showSettingsAlert = true
                 }
             }
@@ -79,7 +80,7 @@ struct IconButtonView: View {
             Image(imageName)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .frame(width: 50, height: 50)
+                .frame(width: 30, height: 30)
         }
         .background(showSettingsAlert ? SettingsLauncher() : nil)
     }

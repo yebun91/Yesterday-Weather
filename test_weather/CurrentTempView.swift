@@ -21,15 +21,21 @@ struct CurrentTempView: View {
         let yesterdayTemp = Int(weatherKitManager.getTemp(day: yesterday)) ?? 0
         let tempDifference =  todayTemp - yesterdayTemp
         
-        VStack{
-            Text("\(todayTemp)°C").frame(maxWidth: .infinity, alignment: .center)
-            Text("\(tempDifference > 0 ? "+\(tempDifference)" : "\(tempDifference)")")
-                .font(.largeTitle)
-                .fontWeight(.bold)
+        let temp = weatherKitManager.getWeathers(day: today)
+        Divider().frame(height: 2).background(Color.black)
+        VStack(spacing: -25){
+            Text("\(todayTemp)°C")
                 .frame(maxWidth: .infinity, alignment: .center)
+                .font(.system(size: 25))
+            Text("\(tempDifference > 0 ? "+\(tempDifference)" : "\(tempDifference)")")
+                .font(.system(size: 130))
+                .fontWeight(.semibold)
+                .frame(maxWidth: .infinity, alignment: .center)
+            Text("\(temp?.symbolName ?? "")")
+                .font(.system(size: 30))
+                .fontWeight(.semibold)
         }
         .frame(maxHeight: .infinity)
-        .background(Color.blue)
     }
     
 }

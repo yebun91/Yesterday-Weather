@@ -17,16 +17,17 @@ struct WeatherIndicatorView: View {
     var body: some View {
         let weathers = weatherKitManager.getWeathers(day: Date())
         let humidity = Int((weathers?.humidity ?? 0.0) * 100)
-        let wind = weathers?.wind.speed ?? Measurement(value: 0, unit: UnitSpeed.kilometersPerHour)
-        let precipitation = weathers?.precipitationAmount ?? Measurement(value: 0, unit: UnitLength.millimeters)
+        let wind = Int(round((weathers?.wind.speed ?? Measurement(value: 0, unit: UnitSpeed.kilometersPerHour)).value))
         
+        let precipitation = weathers?.precipitationAmount ?? Measurement(value: 0, unit: UnitLength.millimeters)
         HStack{
-            WeatherIndicatorItemView(imageName: "wind-solid", text: "\(wind)")
+            WeatherIndicatorItemView(name: "Wind", text: "\(wind)km/h").frame(maxWidth: .infinity)
             Spacer()
-            WeatherIndicatorItemView(imageName: "droplet-solid", text: "\(humidity)%")
+            WeatherIndicatorItemView(name: "Humidity", text: "\(humidity)%").frame(maxWidth: .infinity)
             Spacer()
-            WeatherIndicatorItemView(imageName: "cloud-rain-solid", text: "\(precipitation)")
-        }.background(Color.orange)
+            WeatherIndicatorItemView(name: "Rainfall", text: "\(precipitation)").frame(maxWidth: .infinity)
+        }
+        Divider().frame(height: 2).background(Color.black)
     }
 }
 
@@ -34,15 +35,15 @@ struct WeatherIndicatorView: View {
  날씨 지표 항목을 정의하는 별도의 뷰
  */
 struct WeatherIndicatorItemView: View {
-    let imageName: String
+    let name: String
     let text: String
     
     var body: some View {
         VStack{
-            Image(imageName).resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 60, height: 60)
+            Text(name)
+                .fontWeight(.semibold)
             Text(text)
         }.padding()
     }
 }
+
