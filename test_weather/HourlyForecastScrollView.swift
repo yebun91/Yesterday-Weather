@@ -31,7 +31,9 @@ struct HourlyForecastScrollView: View {
                         // 어제와 오늘의 온도차를 가져옴
                         let feelTempString = weatherKitManager.calculateFeelTemp(index: index, sortedKeys: Array(sortedKeys))
                         
-                        HourlyForecastView(hour: hourOnly, temp: "\(String(format: "%.0f", temp))°C", feelTemp: feelTempString)
+                        let weather = weatherKitManager.getWeatherIconForCondition(condition: weatherToday.condition)
+                        
+                        HourlyForecastView(hour: hourOnly, temp: "\(String(format: "%.0f", temp))°C", feelTemp: feelTempString, weather: weather)
                     }
                 }
             }
@@ -47,8 +49,10 @@ struct HourlyForecastView: View {
     let hour: String
     let temp: String
     let feelTemp: String
+    let weather: String
     
     var body: some View {
+
         VStack{
             Spacer()
             Text(hour)
@@ -56,6 +60,12 @@ struct HourlyForecastView: View {
                 .foregroundColor(Color("reverseText"))
             Spacer()
             VStack{
+                Image("\(weather)")
+                    .renderingMode(.template)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .foregroundColor(Color("text"))
+                    .frame(width: 20, height: 20)
                 Text(feelTemp).font(.system(size: 30)).foregroundColor(Color("reverseText"))
                 Text(temp)
                     .foregroundColor(Color("reverseText"))

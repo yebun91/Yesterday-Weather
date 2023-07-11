@@ -21,6 +21,8 @@
 		DC1B8CA42A4A5DFF002ABEB6 /* WeatherIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1B8CA32A4A5DFF002ABEB6 /* WeatherIndicatorView.swift */; };
 		DC1B8CB42A4A6095002ABEB6 /* WeatherKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1B8CB32A4A6095002ABEB6 /* WeatherKitManager.swift */; };
 		DC1B8CB72A4A71C6002ABEB6 /* LocationDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1B8CB62A4A71C6002ABEB6 /* LocationDataManager.swift */; };
+		DC7128EA2A5D0AAC00DCDE12 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC7128EC2A5D0AAC00DCDE12 /* InfoPlist.strings */; };
+		DC9BAEBF2A5CECA900081027 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC9BAEC12A5CECA900081027 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +43,10 @@
 		DC1B8CB32A4A6095002ABEB6 /* WeatherKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherKitManager.swift; sourceTree = "<group>"; };
 		DC1B8CB52A4A676B002ABEB6 /* test_weather.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = test_weather.entitlements; sourceTree = "<group>"; };
 		DC1B8CB62A4A71C6002ABEB6 /* LocationDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDataManager.swift; sourceTree = "<group>"; };
+		DC7128EB2A5D0AAC00DCDE12 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		DC7128ED2A5D0AB000DCDE12 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		DC9BAEC02A5CECA900081027 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		DC9BAEC32A5CEEDC00081027 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F9D377F351FFC270D2BC0FE6 /* Pods-test_weather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-test_weather.release.xcconfig"; path = "Target Support Files/Pods-test_weather/Pods-test_weather.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -98,11 +104,12 @@
 			children = (
 				78F57C2C2A4EFBE300BE5BDF /* test-weather-Info.plist */,
 				DC1B8CB52A4A676B002ABEB6 /* test_weather.entitlements */,
-				DC1B8CAC2A4A5EB0002ABEB6 /* Model */,
 				DC1B8CA52A4A5E15002ABEB6 /* View */,
 				DC1B8C932A4A5D4B002ABEB6 /* Assets.xcassets */,
 				DC1B8CA62A4A5E39002ABEB6 /* Controller */,
 				DC1B8C952A4A5D4B002ABEB6 /* Preview Content */,
+				DC9BAEC12A5CECA900081027 /* Localizable.strings */,
+				DC7128EC2A5D0AAC00DCDE12 /* InfoPlist.strings */,
 			);
 			path = test_weather;
 			sourceTree = "<group>";
@@ -136,13 +143,6 @@
 				DC1B8CB62A4A71C6002ABEB6 /* LocationDataManager.swift */,
 			);
 			name = Controller;
-			sourceTree = "<group>";
-		};
-		DC1B8CAC2A4A5EB0002ABEB6 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,6 +192,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ko,
 			);
 			mainGroup = DC1B8C832A4A5D4A002ABEB6;
 			packageReferences = (
@@ -212,8 +213,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC1B8C972A4A5D4B002ABEB6 /* Preview Assets.xcassets in Resources */,
+				DC9BAEBF2A5CECA900081027 /* Localizable.strings in Resources */,
 				78F57C2B2A4EF8BE00BE5BDF /* .gitignore in Resources */,
 				DC1B8C942A4A5D4B002ABEB6 /* Assets.xcassets in Resources */,
+				DC7128EA2A5D0AAC00DCDE12 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,11 +283,33 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXVariantGroup section */
+		DC7128EC2A5D0AAC00DCDE12 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DC7128EB2A5D0AAC00DCDE12 /* en */,
+				DC7128ED2A5D0AB000DCDE12 /* ko */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		DC9BAEC12A5CECA900081027 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DC9BAEC02A5CECA900081027 /* en */,
+				DC9BAEC32A5CEEDC00081027 /* ko */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		DC1B8C982A4A5D4B002ABEB6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -345,6 +370,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";

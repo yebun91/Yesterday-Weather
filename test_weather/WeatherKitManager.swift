@@ -106,4 +106,83 @@ import CoreLocation
         }
         return "0"
     }
+    
+    /**
+     날씨 상태에 따른 아이콘 변경
+     */
+    func getWeatherIconForCondition(condition: WeatherCondition?) -> String {
+        guard let condition = condition else { return "clear" }
+        switch condition {
+        case .blowingDust:
+            return "wind"
+        case .blizzard:
+            return "snow"
+        case .blowingSnow:
+            return "snow"
+        case .breezy:
+            return "clear"
+        case .clear:
+            return "clear"
+        case .cloudy:
+            return "sun_cloudy"
+        case .drizzle:
+            return "rain"
+        case .flurries:
+            return "cloud_snow"
+        case .foggy:
+            return "clear"
+        case .freezingDrizzle:
+            return "rain"
+        case .freezingRain:
+            return "rain"
+        case .frigid:
+            return "clear"
+        case .hail:
+            return "cloud_snow"
+        case .haze:
+            return "clear"
+        case .heavyRain:
+            return "rain"
+        case .heavySnow:
+            return "snow"
+        case .hot:
+            return "clear"
+        case .hurricane:
+            return "wind"
+        case .isolatedThunderstorms:
+            return "cloud_lighltning"
+        case .mostlyClear:
+            return "clear"
+        case .mostlyCloudy:
+            return "sun_cloudy"
+        case .partlyCloudy:
+            return "sun_cloudy"
+        case .rain:
+            return "rain"
+        case .scatteredThunderstorms:
+            return "cloud_lighltning"
+        case .sleet:
+            return "cloud_snow"
+        case .smoky:
+            return "clear"
+        case .snow:
+            return "snow"
+        case .strongStorms:
+            return "cloud_lighltning"
+        case .sunFlurries:
+            return "snow"
+        case .sunShowers:
+            return "rain"
+        case .thunderstorms:
+            return "cloud_lighltning"
+        case .tropicalStorm:
+            return "cloud_lighltning"
+        case .windy:
+            return "wind"
+        case .wintryMix:
+            return "snow"
+        @unknown default:
+            return "clear"
+        }
+    }
 }
