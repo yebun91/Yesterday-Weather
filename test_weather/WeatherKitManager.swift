@@ -23,7 +23,7 @@ import CoreLocation
     }
     
     /**
-     어제부터 내일까지의 날씨 데이터 를 api로 불러옴
+     어제부터 내일까지의 날씨 데이터를 api로 불러옴
      */
     func getWeathersFromYesterdayToTomorrow(latitude: Double, longitude: Double) async {
         let location = CLLocation(latitude: latitude, longitude: longitude)

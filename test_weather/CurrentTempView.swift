@@ -22,18 +22,21 @@ struct CurrentTempView: View {
         let tempDifference =  todayTemp - yesterdayTemp
         
         let temp = weatherKitManager.getWeathers(day: today)
-        Divider().frame(height: 2).background(Color.black)
+        Divider().frame(height: 2).background(Color("text"))
         VStack(spacing: -25){
             Text("\(todayTemp)°C")
+                .foregroundColor(Color("text"))
                 .frame(maxWidth: .infinity, alignment: .center)
                 .font(.system(size: 25))
             Text("\(tempDifference > 0 ? "+\(tempDifference)" : "\(tempDifference)")")
                 .font(.system(size: 130))
                 .fontWeight(.semibold)
+                .foregroundColor(Color("text"))
                 .frame(maxWidth: .infinity, alignment: .center)
             Text("\(temp?.symbolName ?? "")")
                 .font(.system(size: 30))
                 .fontWeight(.semibold)
+                .foregroundColor(Color("text"))
         }
         .frame(maxHeight: .infinity)
     }

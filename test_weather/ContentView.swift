@@ -22,6 +22,8 @@ struct ContentView: View {
             
             HourlyForecastScrollView()
             
+            AdView().frame(height: 60)
+            
         }.padding()
             .task{
                 locationDataManager.weatherKitManager = weatherKitManager // 인스턴스를 공유합니다.
@@ -29,8 +31,8 @@ struct ContentView: View {
             }
             .environmentObject(weatherKitManager)
             .environmentObject(locationDataManager)
-            .background(Color(hue: 0.634, saturation: 0.04, brightness: 0.844))
-        AdView().frame(height: 60)
+            .background(Color("backgraund"))
+        
     }
 }
 

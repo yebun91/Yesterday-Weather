@@ -21,6 +21,7 @@ struct TopBarView: View {
             IconButtonView(imageName: "bars-solid").opacity(0)
             Spacer()
             Text(locationName)
+                .foregroundColor(Color("text"))
             Spacer()
             IconButtonView(imageName: "location-dot-solid")
         }
@@ -78,8 +79,10 @@ struct IconButtonView: View {
             }
         }) {
             Image(imageName)
+                .renderingMode(.template)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
+                .foregroundColor(Color("text"))
                 .frame(width: 30, height: 30)
         }
         .background(showSettingsAlert ? SettingsLauncher() : nil)

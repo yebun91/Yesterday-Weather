@@ -53,17 +53,19 @@ struct HourlyForecastView: View {
             Spacer()
             Text(hour)
                 .fontWeight(.semibold)
+                .foregroundColor(Color("reverseText"))
             Spacer()
             VStack{
-                Text(feelTemp).font(.system(size: 30))
+                Text(feelTemp).font(.system(size: 30)).foregroundColor(Color("reverseText"))
                 Text(temp)
+                    .foregroundColor(Color("reverseText"))
             }.frame(maxWidth: .infinity,
                     maxHeight: .infinity,
                     alignment: .center)
             .padding(2)
         }.frame(width: 65, height: 150)
             .padding(2)
-            .background(Color.white)
+            .background(Color("white"))
             .cornerRadius(10)
     }
 }
