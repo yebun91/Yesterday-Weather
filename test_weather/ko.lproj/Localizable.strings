@@ -5,4 +5,6 @@
   Created by rgorithm_mactest on 2023/07/11.
   
 */
-
+"Wind" = "바람";
+"Humidity" = "습도";
+"Rainfall" = "강수량";

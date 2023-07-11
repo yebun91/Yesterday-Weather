@@ -73,7 +73,6 @@ import CoreLocation
         formatter.dateFormat = "yyyy-MM-dd HH"
         let dayformat = formatter.string(from: day)
         if let weathers = weatherInfo[dayformat] {
-            print(weathers)
             return weathers
         } else {
             return nil

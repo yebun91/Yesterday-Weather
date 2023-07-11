@@ -22,11 +22,11 @@ struct WeatherIndicatorView: View {
         let precipitation = weathers?.precipitationAmount ?? Measurement(value: 0, unit: UnitLength.millimeters)
 
         HStack{
-            WeatherIndicatorItemView(name: "Wind", text: "\(wind)km/h").frame(maxWidth: .infinity)
+            WeatherIndicatorItemView(name: NSLocalizedString("Wind", comment: "은빈이의"), text: "\(wind)km/h").frame(maxWidth: .infinity)
             Spacer()
-            WeatherIndicatorItemView(name: "Humidity", text: "\(humidity)%").frame(maxWidth: .infinity)
+            WeatherIndicatorItemView(name: NSLocalizedString("Humidity", comment: "아이디어로"), text: "\(humidity)%").frame(maxWidth: .infinity)
             Spacer()
-            WeatherIndicatorItemView(name: "Rainfall", text: "\(precipitation)").frame(maxWidth: .infinity)
+            WeatherIndicatorItemView(name: NSLocalizedString("Rainfall", comment: "앱을 제작함"), text: "\(precipitation)").frame(maxWidth: .infinity)
         }
         Divider().frame(height: 2).background(Color("text")).padding(.bottom)
         
@@ -43,7 +43,7 @@ struct WeatherIndicatorItemView: View {
     var body: some View {
         VStack{
             Text(name)
-                .fontWeight(.semibold)
+                .fontWeight(.bold)
                 .foregroundColor(Color("text"))
             Text(text)
                 .foregroundColor(Color("text"))
