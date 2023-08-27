@@ -31,7 +31,7 @@
 		78F57C2A2A4EF8BE00BE5BDF /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		78F57C2C2A4EFBE300BE5BDF /* test-weather-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "test-weather-Info.plist"; sourceTree = SOURCE_ROOT; };
 		78F57C2D2A4EFEDA00BE5BDF /* AdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdView.swift; sourceTree = "<group>"; };
-		DC1B8C8C2A4A5D4A002ABEB6 /* test_weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = test_weather.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC1B8C8C2A4A5D4A002ABEB6 /* Yesterday-Weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Yesterday-Weather.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC1B8C8F2A4A5D4A002ABEB6 /* test_weatherApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test_weatherApp.swift; sourceTree = "<group>"; };
 		DC1B8C912A4A5D4A002ABEB6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		DC1B8C932A4A5D4B002ABEB6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -94,7 +94,7 @@
 		DC1B8C8D2A4A5D4A002ABEB6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DC1B8C8C2A4A5D4A002ABEB6 /* test_weather.app */,
+				DC1B8C8C2A4A5D4A002ABEB6 /* Yesterday-Weather.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -148,9 +148,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		DC1B8C8B2A4A5D4A002ABEB6 /* test_weather */ = {
+		DC1B8C8B2A4A5D4A002ABEB6 /* Yesterday-Weather */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DC1B8C9A2A4A5D4B002ABEB6 /* Build configuration list for PBXNativeTarget "test_weather" */;
+			buildConfigurationList = DC1B8C9A2A4A5D4B002ABEB6 /* Build configuration list for PBXNativeTarget "Yesterday-Weather" */;
 			buildPhases = (
 				FC3F1159949B7CA7B2143564 /* [CP] Check Pods Manifest.lock */,
 				DC1B8C882A4A5D4A002ABEB6 /* Sources */,
@@ -162,12 +162,12 @@
 			);
 			dependencies = (
 			);
-			name = test_weather;
+			name = "Yesterday-Weather";
 			packageProductDependencies = (
 				78EFA2792A4EEDE100C81643 /* GoogleMobileAds */,
 			);
 			productName = test_weather;
-			productReference = DC1B8C8C2A4A5D4A002ABEB6 /* test_weather.app */;
+			productReference = DC1B8C8C2A4A5D4A002ABEB6 /* Yesterday-Weather.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -185,7 +185,7 @@
 					};
 				};
 			};
-			buildConfigurationList = DC1B8C872A4A5D4A002ABEB6 /* Build configuration list for PBXProject "test_weather" */;
+			buildConfigurationList = DC1B8C872A4A5D4A002ABEB6 /* Build configuration list for PBXProject "Yesterday-Weather" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -202,7 +202,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DC1B8C8B2A4A5D4A002ABEB6 /* test_weather */,
+				DC1B8C8B2A4A5D4A002ABEB6 /* Yesterday-Weather */,
 			);
 		};
 /* End PBXProject section */
@@ -447,7 +447,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.yudle-yudle.test-weather";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yudle-yudle.yesterday-weather-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -481,7 +481,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.yudle-yudle.test-weather";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yudle-yudle.yesterday-weather-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -492,7 +492,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		DC1B8C872A4A5D4A002ABEB6 /* Build configuration list for PBXProject "test_weather" */ = {
+		DC1B8C872A4A5D4A002ABEB6 /* Build configuration list for PBXProject "Yesterday-Weather" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DC1B8C982A4A5D4B002ABEB6 /* Debug */,
@@ -501,7 +501,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DC1B8C9A2A4A5D4B002ABEB6 /* Build configuration list for PBXNativeTarget "test_weather" */ = {
+		DC1B8C9A2A4A5D4B002ABEB6 /* Build configuration list for PBXNativeTarget "Yesterday-Weather" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DC1B8C9B2A4A5D4B002ABEB6 /* Debug */,
