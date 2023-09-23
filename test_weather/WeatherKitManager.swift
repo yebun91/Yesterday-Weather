@@ -123,7 +123,7 @@ import CoreLocation
         case .clear:
             return "clear"
         case .cloudy:
-            return "sun_cloudy"
+            return "cloud"
         case .drizzle:
             return "rain"
         case .flurries:
