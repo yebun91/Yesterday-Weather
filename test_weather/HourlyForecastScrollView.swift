@@ -15,12 +15,11 @@ struct HourlyForecastScrollView: View {
     @EnvironmentObject var weatherKitManager: WeatherKitManager
     
     var body: some View {
-        let weathersInfo = weatherKitManager.weatherInfo
-        
         ScrollView(.horizontal, showsIndicators: false) {
             HStack {
-                let sortedKeys = Array(weathersInfo.keys).sorted().suffix(24)
+                let sortedKeys = Array(weatherKitManager.weatherInfo.keys).sorted().suffix(24)
                 ForEach(Array(sortedKeys.enumerated()), id: \.element) { index, hour in
+                    let weathersInfo = weatherKitManager.weatherInfo
                     if let weatherToday = weathersInfo[hour] {
                         // 소수점자리 반올림 한 온도로 변경
                         let temp = weatherToday.temperature.value.rounded()
