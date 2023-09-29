@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-/**테스트용**/
 struct ContentView: View {
     
     @StateObject var weatherKitManager = WeatherKitManager()

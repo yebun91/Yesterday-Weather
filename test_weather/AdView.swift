@@ -14,7 +14,8 @@ struct AdView: UIViewRepresentable {
     func makeUIView(context: Context) -> GADBannerView {
         let banner = GADBannerView(adSize: GADAdSizeBanner)
         
-        banner.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        // 광고 아이디 변경
+        banner.adUnitID = "ca-app-pub-3042544566315852/7100925233"
         
         if let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
             banner.rootViewController = scene.windows.first?.rootViewController
