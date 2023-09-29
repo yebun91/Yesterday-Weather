@@ -5,6 +5,6 @@
   Created by rgorithm_mactest on 2023/07/11.
   
 */
-"CFBundleDisplayName" = "어제날씨";
-"CFBundleName" = "어제날씨";
+"CFBundleDisplayName" = "어제의 날씨";
+"CFBundleName" = "어제의 날씨";
 "NSLocationWhenInUseUsageDescription" = "내 위치 확인을 위해 권한이 필요합니다.";
