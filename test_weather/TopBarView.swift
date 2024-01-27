@@ -39,6 +39,7 @@ struct TopBarView: View {
         let location = CLLocation(latitude: locationDataManager.latitude, longitude: locationDataManager.longitude)
         
         let geocoder = CLGeocoder()
+        
         do {
             let placemarks = try await geocoder.reverseGeocodeLocation(location)
             guard let placemark = placemarks.first else {
@@ -67,14 +68,18 @@ struct IconButtonView: View {
     
     var body: some View {
         Button(action: {
+            // 로케이션 버튼을 클릭했을 경우
             if imageName == "location-dot-solid" {
+                // 사용자가 사용자가 해당 앱에 대해 '앱 사용 중에만 위치 접근 허용'이라는 권한을 설정했는지를 확인하는 조건문
                 if locationDataManager.authorizationStatus == .authorizedWhenInUse {
                     Task {
+                        print(locationDataManager.latitude, locationDataManager.longitude)
                         await weatherKitManager.getWeathersFromYesterdayToTomorrow(latitude: locationDataManager.latitude, longitude: locationDataManager.longitude)
                     }
                 } else {
                     showSettingsAlert = false
                     showSettingsAlert = true
+                    // SwiftUI가 이 변화를 감지하고 관련된 View를 업데이트하도록 먼저 showSettingsAlert = false로 설정함으로써 상태를 변경하고, 바로 다음 줄에서 showSettingsAlert = true로 다시 설정하여 실제로 원하는 상태(경고창을 표시하는 상태)로 만듦.
                 }
             }
         }) {
@@ -85,7 +90,7 @@ struct IconButtonView: View {
                 .foregroundColor(Color("text"))
                 .frame(width: 30, height: 30)
         }
-        .background(showSettingsAlert ? SettingsLauncher() : nil)
+        .background(showSettingsAlert ? SettingsLauncher() : nil) // 사용자가 위치정보를 허용하지 않았을 경우 설정화면으로 이동시킴
     }
 }
 
