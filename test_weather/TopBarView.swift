@@ -73,7 +73,6 @@ struct IconButtonView: View {
                 // 사용자가 사용자가 해당 앱에 대해 '앱 사용 중에만 위치 접근 허용'이라는 권한을 설정했는지를 확인하는 조건문
                 if locationDataManager.authorizationStatus == .authorizedWhenInUse {
                     Task {
-                        print(locationDataManager.latitude, locationDataManager.longitude)
                         await weatherKitManager.getWeathersFromYesterdayToTomorrow(latitude: locationDataManager.latitude, longitude: locationDataManager.longitude)
                     }
                 } else {

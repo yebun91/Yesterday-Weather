@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		54856148B333F21085DA8902 /* Pods_test_weather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 661C2C58EC9E7CDCC5D681D1 /* Pods_test_weather.framework */; };
+		78CA330E2B64F532004FC841 /* yesterday_weather_appApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CA330D2B64F532004FC841 /* yesterday_weather_appApp.swift */; };
+		78CA33102B64F532004FC841 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CA330F2B64F532004FC841 /* ContentView.swift */; };
+		78CA33122B64F533004FC841 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78CA33112B64F533004FC841 /* Assets.xcassets */; };
+		78CA33152B64F533004FC841 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78CA33142B64F533004FC841 /* Preview Assets.xcassets */; };
 		78EFA27A2A4EEDE100C81643 /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = 78EFA2792A4EEDE100C81643 /* GoogleMobileAds */; };
 		78F57C2B2A4EF8BE00BE5BDF /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 78F57C2A2A4EF8BE00BE5BDF /* .gitignore */; };
 		78F57C2E2A4EFEDA00BE5BDF /* AdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F57C2D2A4EFEDA00BE5BDF /* AdView.swift */; };
@@ -28,6 +32,11 @@
 /* Begin PBXFileReference section */
 		48028088D8EDC8995F72DCA1 /* Pods-test_weather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-test_weather.debug.xcconfig"; path = "Target Support Files/Pods-test_weather/Pods-test_weather.debug.xcconfig"; sourceTree = "<group>"; };
 		661C2C58EC9E7CDCC5D681D1 /* Pods_test_weather.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_test_weather.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		78CA330B2B64F532004FC841 /* yesterday-weather-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "yesterday-weather-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		78CA330D2B64F532004FC841 /* yesterday_weather_appApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = yesterday_weather_appApp.swift; sourceTree = "<group>"; };
+		78CA330F2B64F532004FC841 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		78CA33112B64F533004FC841 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		78CA33142B64F533004FC841 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		78F57C2A2A4EF8BE00BE5BDF /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		78F57C2C2A4EFBE300BE5BDF /* test-weather-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "test-weather-Info.plist"; sourceTree = SOURCE_ROOT; };
 		78F57C2D2A4EFEDA00BE5BDF /* AdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdView.swift; sourceTree = "<group>"; };
@@ -51,6 +60,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		78CA33082B64F532004FC841 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DC1B8C892A4A5D4A002ABEB6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -71,6 +87,25 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		78CA330C2B64F532004FC841 /* yesterday-weather-app */ = {
+			isa = PBXGroup;
+			children = (
+				78CA330D2B64F532004FC841 /* yesterday_weather_appApp.swift */,
+				78CA330F2B64F532004FC841 /* ContentView.swift */,
+				78CA33112B64F533004FC841 /* Assets.xcassets */,
+				78CA33132B64F533004FC841 /* Preview Content */,
+			);
+			path = "yesterday-weather-app";
+			sourceTree = "<group>";
+		};
+		78CA33132B64F533004FC841 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				78CA33142B64F533004FC841 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
 		DB85E129261FD6FB22B730C9 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +120,7 @@
 			children = (
 				78F57C2A2A4EF8BE00BE5BDF /* .gitignore */,
 				DC1B8C8E2A4A5D4A002ABEB6 /* test_weather */,
+				78CA330C2B64F532004FC841 /* yesterday-weather-app */,
 				DC1B8C8D2A4A5D4A002ABEB6 /* Products */,
 				DB85E129261FD6FB22B730C9 /* Pods */,
 				48F6701662DCB95F351E5D72 /* Frameworks */,
@@ -95,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				DC1B8C8C2A4A5D4A002ABEB6 /* Yesterday-Weather.app */,
+				78CA330B2B64F532004FC841 /* yesterday-weather-app.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -148,6 +185,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		78CA330A2B64F532004FC841 /* yesterday-weather-app */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 78CA33182B64F533004FC841 /* Build configuration list for PBXNativeTarget "yesterday-weather-app" */;
+			buildPhases = (
+				78CA33072B64F532004FC841 /* Sources */,
+				78CA33082B64F532004FC841 /* Frameworks */,
+				78CA33092B64F532004FC841 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "yesterday-weather-app";
+			productName = "yesterday-weather-app";
+			productReference = 78CA330B2B64F532004FC841 /* yesterday-weather-app.app */;
+			productType = "com.apple.product-type.application";
+		};
 		DC1B8C8B2A4A5D4A002ABEB6 /* Yesterday-Weather */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = DC1B8C9A2A4A5D4B002ABEB6 /* Build configuration list for PBXNativeTarget "Yesterday-Weather" */;
@@ -177,9 +231,12 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1430;
+				LastSwiftUpdateCheck = 1510;
+				LastUpgradeCheck = 1510;
 				TargetAttributes = {
+					78CA330A2B64F532004FC841 = {
+						CreatedOnToolsVersion = 15.1;
+					};
 					DC1B8C8B2A4A5D4A002ABEB6 = {
 						CreatedOnToolsVersion = 14.3;
 					};
@@ -203,11 +260,21 @@
 			projectRoot = "";
 			targets = (
 				DC1B8C8B2A4A5D4A002ABEB6 /* Yesterday-Weather */,
+				78CA330A2B64F532004FC841 /* yesterday-weather-app */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		78CA33092B64F532004FC841 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				78CA33152B64F533004FC841 /* Preview Assets.xcassets in Resources */,
+				78CA33122B64F533004FC841 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DC1B8C8A2A4A5D4A002ABEB6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -265,6 +332,15 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		78CA33072B64F532004FC841 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				78CA33102B64F532004FC841 /* ContentView.swift in Sources */,
+				78CA330E2B64F532004FC841 /* yesterday_weather_appApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DC1B8C882A4A5D4A002ABEB6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -305,10 +381,80 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		78CA33162B64F533004FC841 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"yesterday-weather-app/Preview Content\"";
+				DEVELOPMENT_TEAM = Z4N8AJF7BQ;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yudle-yudle.yesterday-weather-app";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		78CA33172B64F533004FC841 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"yesterday-weather-app/Preview Content\"";
+				DEVELOPMENT_TEAM = Z4N8AJF7BQ;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yudle-yudle.yesterday-weather-app";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		DC1B8C982A4A5D4B002ABEB6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -370,6 +516,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -429,7 +576,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = test_weather/test_weather.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"test_weather/Preview Content\"";
 				DEVELOPMENT_TEAM = Z4N8AJF7BQ;
 				ENABLE_PREVIEWS = YES;
@@ -447,7 +594,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.yudle-yudle.yesterday-weather-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -464,7 +611,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = test_weather/test_weather.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"test_weather/Preview Content\"";
 				DEVELOPMENT_TEAM = Z4N8AJF7BQ;
 				ENABLE_PREVIEWS = YES;
@@ -482,7 +629,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.yudle-yudle.yesterday-weather-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -494,6 +641,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		78CA33182B64F533004FC841 /* Build configuration list for PBXNativeTarget "yesterday-weather-app" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				78CA33162B64F533004FC841 /* Debug */,
+				78CA33172B64F533004FC841 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		DC1B8C872A4A5D4A002ABEB6 /* Build configuration list for PBXProject "Yesterday-Weather" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
