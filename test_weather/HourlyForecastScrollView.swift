@@ -44,7 +44,6 @@ struct HourlyForecastScrollView: View {
  시간별 예보 항목을 정의하는 별도의 뷰
  */
 struct HourlyForecastView: View {
-    
     let hour: String
     let temp: String
     let feelTemp: String
@@ -68,6 +67,7 @@ struct HourlyForecastView: View {
                 Text(feelTemp).font(.system(size: 30)).foregroundColor(Color("reverseText"))
                 Text(temp)
                     .foregroundColor(Color("reverseText"))
+                
             }.frame(maxWidth: .infinity,
                     maxHeight: .infinity,
                     alignment: .center)
